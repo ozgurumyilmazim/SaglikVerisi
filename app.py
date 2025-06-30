@@ -121,7 +121,7 @@ def upload_pdf(pid):
             flash('PDF yuklendi ve sonuclar eklendi!', 'success')
             return redirect(url_for('patient_detail', pid=pid))
         else:
-            flash('Yalnýzca PDF dosyasi yukleyebilirsiniz.', 'danger')
+            flash('Yalnizca PDF dosyasi yukleyebilirsiniz.', 'danger')
             return redirect(request.url)
     return render_template('upload_pdf.html', pid=pid)
 
