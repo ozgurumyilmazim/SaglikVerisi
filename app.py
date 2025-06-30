@@ -88,11 +88,11 @@ def add_patient():
 def upload_pdf(pid):
     if request.method == 'POST':
         if 'pdf_file' not in request.files:
-            flash('Dosya bulunamadý', 'danger')
+            flash('Dosya bulunamadi', 'danger')
             return redirect(request.url)
         file = request.files['pdf_file']
         if file.filename == '':
-            flash('Dosya seçilmedi', 'danger')
+            flash('Dosya secilmedi', 'danger')
             return redirect(request.url)
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
@@ -118,10 +118,10 @@ def upload_pdf(pid):
                     filename
                 ))
                 con.commit()
-            flash('PDF yüklendi ve sonuçlar eklendi!', 'success')
+            flash('PDF yuklendi ve sonuclar eklendi!', 'success')
             return redirect(url_for('patient_detail', pid=pid))
         else:
-            flash('Yalnýzca PDF dosyasý yükleyebilirsiniz.', 'danger')
+            flash('Yalnýzca PDF dosyasi yukleyebilirsiniz.', 'danger')
             return redirect(request.url)
     return render_template('upload_pdf.html', pid=pid)
 

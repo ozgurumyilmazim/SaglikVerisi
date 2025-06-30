@@ -14,10 +14,10 @@ def extract_lab_results(pdf_path):
         "hemoglobin": r"Hemoglobin\s*[:\-]?\s*([\d,\.]+)",
         "glucose": r"Glukoz\s*[:\-]?\s*([\d,\.]+)",
         "creatinine": r"Kreatinin\s*[:\-]?\s*([\d,\.]+)",
-        "uric_acid": r"Ürik Asit\s*[:\-]?\s*([\d,\.]+)",
+        "uric_acid": r"Urik Asit\s*[:\-]?\s*([\d,\.]+)",
         "sodium": r"Sodyum\s*[:\-]?\s*([\d,\.]+)",
         "potassium": r"Potasyum\s*[:\-]?\s*([\d,\.]+)",
-        "urine_ph": r"Ýdrar pH\s*[:\-]?\s*([\d,\.]+)"
+        "urine_ph": r"Idrar pH\s*[:\-]?\s*([\d,\.]+)"
     }
     for key, pattern in patterns.items():
         match = re.search(pattern, text, re.IGNORECASE)
