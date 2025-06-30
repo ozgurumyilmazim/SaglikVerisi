@@ -98,7 +98,7 @@ def upload_pdf(pid):
             filename = secure_filename(file.filename)
             filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             file.save(filepath)
-            # PDF'den verileri çek
+            # PDF'den verileri cek
             lab_results = extract_lab_results(filepath)
             date = request.form['date']
             with sqlite3.connect(DB) as con:
