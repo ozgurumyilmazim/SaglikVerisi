@@ -1,0 +1,23 @@
+﻿<!doctype html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Hasta Takip Sistemi</title>
+</head>
+<body>
+    <h1>Hasta Takip Sistemi</h1>
+    <a href="{{ url_for('add_patient') }}">Yeni Hasta Ekle</a>
+    <h2>Hastalar</h2>
+    <ul>
+        {% for patient in patients %}
+            <li>
+                <a href="{{ url_for('patient_detail', pid=patient[0]) }}">
+                    {{ patient[1] }} (Doğum Tarihi: {{ patient[2] }})
+                </a>
+            </li>
+        {% else %}
+            <li>Henüz hasta yok.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

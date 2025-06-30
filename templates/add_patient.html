@@ -1,0 +1,17 @@
+﻿<!doctype html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Yeni Hasta Ekle</title>
+</head>
+<body>
+    <h1>Yeni Hasta Ekle</h1>
+    <form method="post">
+        Ad Soyad: <input type="text" name="name" required><br>
+        Doğum Tarihi: <input type="date" name="dob"><br>
+        Notlar: <textarea name="notes"></textarea><br>
+        <button type="submit">Kaydet</button>
+    </form>
+    <a href="{{ url_for('index') }}">Geri</a>
+</body>
+</html>

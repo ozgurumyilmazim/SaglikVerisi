@@ -1,0 +1,46 @@
+﻿<!doctype html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Hasta Detayı</title>
+</head>
+<body>
+    <h1>{{ patient[1] }} ({{ patient[2] }})</h1>
+    <p>{{ patient[3] }}</p>
+    <a href="{{ url_for('upload_pdf', pid=patient[0]) }}">PDF Tetkik Sonucu Yükle</a>
+    <h2>Tetkik Sonuçları</h2>
+    <table border="1">
+        <tr>
+            <th>Tarih</th>
+            <th>Hemoglobin</th>
+            <th>Glukoz</th>
+            <th>Kreatinin</th>
+            <th>Ürik Asit</th>
+            <th>Sodyum</th>
+            <th>Potasyum</th>
+            <th>İdrar pH</th>
+            <th>PDF</th>
+        </tr>
+        {% for r in results %}
+        <tr>
+            <td>{{ r[2] }}</td>
+            <td>{{ r[3] }}</td>
+            <td>{{ r[4] }}</td>
+            <td>{{ r[5] }}</td>
+            <td>{{ r[6] }}</td>
+            <td>{{ r[7] }}</td>
+            <td>{{ r[8] }}</td>
+            <td>{{ r[9] }}</td>
+            <td>
+                {% if r[10] %}
+                <a href="{{ url_for('uploaded_file', filename=r[10]) }}" target="_blank">PDF</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% else %}
+        <tr><td colspan="9">Kayıt yok</td></tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('index') }}">Geri</a>
+</body>
+</html>
